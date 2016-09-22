@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Popup</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="product">
+            <button href="#" class="btn btn-main" id="1" data-popup='{"container":".content_1"}'>Вызов модального окна</button>
+            <div class="content_1 content hidden">
+                <h3 class="contentHeader">
+                    <a href="#">Контент</a>
+                </h3>
+                <div class="description">
+                    <img class="imageForPopup" src="./image.jpg" alt="perfume">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare convallis interdum. Nulla id vehicula nulla. Nulla imperdiet viverra lacinia. Phasellus vitae dolor in metus posuere pellentesque. Nulla eu aliquam est. Cras
+                        maximus, libero nec dapibus sagittis, ipsum tellus iaculis nisi, sed dignissim elit magna vitae odio. Ut lobortis eleifend placerat. Duis dignissim eget magna sed commodo. Maecenas aliquam tincidunt lectus, vel imperdiet leo tempus
+                        a.
+                    </p>
+                </div>
+                <button class="contentBtn" type="button">Кнопка</button>
+            </div>
+        </div>
+    </div>
+    <div class="outerContainerForPopup hidden">
+        <div class="innerContainerForPopup">
+            <img class="closeBtn" src="popupClose.gif" alt="popupCloseButton">
+            <div class="contentContainer">
+            </div>
+        </div>
+    </div>
+    <script src="./js/jQuery 1.6.4.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/popup.init.js"></script>
+    <script src="./js/popup.js"></script>
+</body>
+
+</html>
