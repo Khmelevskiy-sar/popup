@@ -4,7 +4,7 @@
     var $document = $(document),
         initModule = moduleInitializedPopup();
 
-    $document.ready(function () {       
+    $document.ready(function () {
         initModule.init();
     });
 
@@ -38,8 +38,8 @@
             }
 
             $popup = $(DOM_SELECTORS.popup, context).dialog({
-                autoOpen: false,                
-                closeOnEscape: false,                              
+                autoOpen: false,
+                closeOnEscape: false,
                 closeText: "",
                 width: "auto",
                 maxWidth: 400
@@ -78,9 +78,16 @@
         }
 
         function _popupLoader($contant) {
-            $popup.dialog('open');
-            $container.append($contant);
-            $contant.removeClass('hidden');
+            if (!$popup.dialog("isOpen")) {
+                $popup.dialog('open');
+                $container.append($contant);
+                $contant.removeClass('hidden');
+            }
+            else {
+                $container.empty();
+                $container.append($contant);
+                $contant.removeClass('hidden');
+            }
         }
 
         return {
