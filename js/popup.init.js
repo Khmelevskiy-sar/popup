@@ -1,10 +1,11 @@
 
 (function () {
     'use strict'
-    var $document = $(document),
-        initModule = moduleInitializedPopup();
 
-    $document.ready(function () {
+    $(function () {
+        var $document = $(document),
+            initModule = moduleInitializedPopup();
+
         initModule.init();
     });
 
@@ -29,9 +30,11 @@
             $popup;
 
         function initializeHandlers(context) {
-            var $closeBtn,
+            var counter = 0,
+                $closeBtn,
                 $allElement,
-                context;
+                context,
+                length;
 
             if (context === undefined) {
                 context = defaultContext;
@@ -48,13 +51,15 @@
             $allElement = $(DOM_SELECTORS.whithDataPopup, context);
             $closeBtn = $(DOM_SELECTORS.closeBtn, context);
 
-            $allElement.each(function (index, element) {
-                var $element = $(element),
-                    config = {};
+            length = $allElement.length;
 
-                config = $.extend({}, DEFAULT_CONFIG, $element.data("popup"));
+            for (counter = 0; counter < length; ++counter) {
+                var $element = $allElement.eq(counter),                 
+                    config;
+
+                config = $.extend({}, DEFAULT_CONFIG, $element.data('popup'));                
                 _assignmentHandler($element, config, context);
-            });
+            }           
 
             $closeBtn.bind(
                 'click', function (e) {
